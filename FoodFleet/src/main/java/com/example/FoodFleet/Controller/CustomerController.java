@@ -2,9 +2,9 @@ package com.example.FoodFleet.Controller;
 
 import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
 import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
-import com.example.FoodFleet.Entity.Customer;
+import com.example.FoodFleet.DTO.UpdateRequestDTO;
+import com.example.FoodFleet.DTO.UpdateResponseDTO;
 import com.example.FoodFleet.Service.CustomerService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +29,14 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CreateCustomerResponseDto>> getAll(){
+    public ResponseEntity<List<CreateCustomerResponseDto>> getall(){
         return ResponseEntity.ok(customerService.getall());
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UpdateResponseDTO> update(@PathVariable Long id,
+                                                    @RequestBody UpdateRequestDTO updateRequestDTO){
+        return ResponseEntity.ok(customerService.update(id, updateRequestDTO));
+    }
+
 }

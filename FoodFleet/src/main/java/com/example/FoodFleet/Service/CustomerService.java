@@ -2,16 +2,20 @@ package com.example.FoodFleet.Service;
 
 import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
 import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
+import com.example.FoodFleet.DTO.UpdateRequestDTO;
+import com.example.FoodFleet.DTO.UpdateResponseDTO;
 import com.example.FoodFleet.Entity.Customer;
 import com.example.FoodFleet.Mapper.CustomerMapper;
 import com.example.FoodFleet.Repository.CustomerRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -47,5 +51,18 @@ public class CustomerService {
             customerResponseDtos.add(dto);           // or array list me add kiya..
         }
         return customerResponseDtos;           // ArrayList retuen kardi..
+    }
+
+    public UpdateResponseDTO update(Long id, UpdateRequestDTO updateRequestDTO){
+        Optional<Customer> customerGet = customerRepository.findById(id);
+        Customer customer = customerGet.get();
+        customerMapper.updateMapToEntity(updateRequestDTO,customer);
+        customer.setUpdatedAt(LocalDateTime.now());
+
+        Customer updateCustomer = customerRepository.save(customer);
+        return customerMapper.updateMapToDTO(updateCustomer);
+
+
+
     }
 }
