@@ -7,10 +7,7 @@ import com.example.FoodFleet.DTO.UpdateResponseDTO;
 import com.example.FoodFleet.Entity.Customer;
 import com.example.FoodFleet.Mapper.CustomerMapper;
 import com.example.FoodFleet.Repository.CustomerRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -61,8 +58,11 @@ public class CustomerService {
 
         Customer updateCustomer = customerRepository.save(customer);
         return customerMapper.updateMapToDTO(updateCustomer);
-
-
-
     }
+//
+//    public Customer delete(Long id){
+//        Optional<Customer> customer = customerRepository.findById(id);
+//        Customer getCustomer = customer.get();
+//        return customerRepository.delete(getCustomer);
+//    }
 }
