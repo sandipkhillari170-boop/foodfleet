@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CustomerService {
@@ -31,5 +33,19 @@ public class CustomerService {
         Customer saveCustomer = customerRepository.save(customer);
 
         return customerMapper.mapToDTO(saveCustomer);
+    }
+    public CreateCustomerResponseDto get(Long id){
+        Customer customer = customerRepository.findById(id).get();
+        CreateCustomerResponseDto customerResponseDto = customerMapper.mapToDTO(customer);
+        return customerResponseDto;
+    }
+    public List<CreateCustomerResponseDto> getall(){
+        List<Customer> customers = customerRepository.findAll();  // list find ki...
+        List<CreateCustomerResponseDto> customerResponseDtos = new ArrayList<>(); // array create kiya..
+        for(Customer customer :customers ){
+            CreateCustomerResponseDto dto = customerMapper.mapToDTO(customer);    // Entity se ek ek karke DTO me convert kiya
+            customerResponseDtos.add(dto);           // or array list me add kiya..
+        }
+        return customerResponseDtos;           // ArrayList retuen kardi..
     }
 }
