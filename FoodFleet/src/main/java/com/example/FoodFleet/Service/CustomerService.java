@@ -5,6 +5,7 @@ import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
 import com.example.FoodFleet.DTO.UpdateRequestDTO;
 import com.example.FoodFleet.DTO.UpdateResponseDTO;
 import com.example.FoodFleet.Entity.Customer;
+import com.example.FoodFleet.Exception.ResourceNotFoundException;
 import com.example.FoodFleet.Mapper.CustomerMapper;
 import com.example.FoodFleet.Repository.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -36,12 +37,14 @@ public class CustomerService {
         return customerMapper.mapToDTO(saveCustomer);
     }
     public CreateCustomerResponseDto get(Long id){
-        Customer customer = customerRepository.findById(id).get();
+        Customer customer = customerRepository.findByIdAndDeletedFalse(id)
+                .orElseThrow(()->
+                        new ResourceNotFoundException(" Customer is not Exist with "+id));
         CreateCustomerResponseDto customerResponseDto = customerMapper.mapToDTO(customer);
         return customerResponseDto;
     }
     public List<CreateCustomerResponseDto> getall(){
-        List<Customer> customers = customerRepository.findAll();  // list find ki...
+        List<Customer> customers = customerRepository.findAllByDeletedFalse();  // list find ki...
         List<CreateCustomerResponseDto> customerResponseDtos = new ArrayList<>(); // array create kiya..
         for(Customer customer :customers ){
             CreateCustomerResponseDto dto = customerMapper.mapToDTO(customer);    // Entity se ek ek karke DTO me convert kiya
@@ -51,18 +54,31 @@ public class CustomerService {
     }
 
     public UpdateResponseDTO update(Long id, UpdateRequestDTO updateRequestDTO){
-        Optional<Customer> customerGet = customerRepository.findById(id);
-        Customer customer = customerGet.get();
+        Customer customer = customerRepository.findByIdAndDeletedFalse(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Customer is not Exist with"+ id + "for update"));
         customerMapper.updateMapToEntity(updateRequestDTO,customer);
         customer.setUpdatedAt(LocalDateTime.now());
 
         Customer updateCustomer = customerRepository.save(customer);
         return customerMapper.updateMapToDTO(updateCustomer);
     }
-//
-//    public Customer delete(Long id){
-//        Optional<Customer> customer = customerRepository.findById(id);
-//        Customer getCustomer = customer.get();
-//        return customerRepository.delete(getCustomer);
-//    }
+
+    public String delete(Long id){
+       Customer customer = customerRepository.findById(id)
+               .orElseThrow(()->
+                       new ResourceNotFoundException("Customer is not found "));
+         customerRepository.delete(customer);
+         return "Customer delete parmantantlly";
+    }
+
+    public String softDelete(Long id){
+        Customer customer = customerRepository.findByIdAndDeletedFalse(id)
+                .orElseThrow(()->
+                        new ResourceNotFoundException("Customer is not found"));
+        customer.setDeleted(true);
+        customerRepository.save(customer);
+        return "Customer delete soffly .";
+
+    }
 }

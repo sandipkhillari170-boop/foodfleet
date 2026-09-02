@@ -4,7 +4,9 @@ import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
 import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
 import com.example.FoodFleet.DTO.UpdateRequestDTO;
 import com.example.FoodFleet.DTO.UpdateResponseDTO;
+import com.example.FoodFleet.Entity.Customer;
 import com.example.FoodFleet.Service.CustomerService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,6 +39,17 @@ public class CustomerController {
     public ResponseEntity<UpdateResponseDTO> update(@PathVariable Long id,
                                                     @RequestBody UpdateRequestDTO updateRequestDTO){
         return ResponseEntity.ok(customerService.update(id, updateRequestDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+        return ResponseEntity.ok(customerService.delete(id));
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<String> softDelete(@PathVariable Long id){
+//        return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        return ResponseEntity.ok(customerService.softDelete(id));
     }
 
 }
