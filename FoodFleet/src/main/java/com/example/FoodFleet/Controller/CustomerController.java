@@ -4,9 +4,8 @@ import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
 import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
 import com.example.FoodFleet.DTO.UpdateRequestDTO;
 import com.example.FoodFleet.DTO.UpdateResponseDTO;
-import com.example.FoodFleet.Entity.Customer;
 import com.example.FoodFleet.Service.CustomerService;
-import org.springframework.http.HttpStatus;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +21,8 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<CreateCustomerResponseDto> create(@RequestBody CreateCustomerRequestDto customer){
+    public ResponseEntity<CreateCustomerResponseDto> create(
+            @Valid @RequestBody CreateCustomerRequestDto customer){
         return ResponseEntity.ok(customerService.create(customer));
     }
     @GetMapping("/{id}")

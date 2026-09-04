@@ -1,9 +1,19 @@
 package com.example.FoodFleet.DTO;
 
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class CreateCustomerRequestDto {
+    @NotBlank(message = "Name is compulsary.")
     private String name;
+    @Email(message = "Email should be in proper formate ")
+    @NotBlank(message = "email ie require ")
+    @Column(unique = true)
     private String email;
+    @NotBlank(message = "Phone number is require .")
     private String phoneNo;
+
 
     public String getName(){
         return name;
