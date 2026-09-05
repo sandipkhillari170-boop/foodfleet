@@ -2,7 +2,7 @@ package com.example.FoodFleet.DTO;
 
 import java.time.LocalDateTime;
 
-public class UpdateResponseDTO {
+public class UpdateCustomerResponseDTO {
     private Long id;
     private String name;
     private String phoneNo;

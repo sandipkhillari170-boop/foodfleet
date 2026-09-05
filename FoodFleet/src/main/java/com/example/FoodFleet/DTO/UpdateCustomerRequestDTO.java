@@ -1,6 +1,6 @@
 package com.example.FoodFleet.DTO;
 
-public class UpdateRequestDTO {
+public class UpdateCustomerRequestDTO {
     private String name;
     private String phoneNo;
     private Boolean active;

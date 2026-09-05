@@ -2,8 +2,8 @@ package com.example.FoodFleet.Service;
 
 import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
 import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
-import com.example.FoodFleet.DTO.UpdateRequestDTO;
-import com.example.FoodFleet.DTO.UpdateResponseDTO;
+import com.example.FoodFleet.DTO.UpdateCustomerRequestDTO;
+import com.example.FoodFleet.DTO.UpdateCustomerResponseDTO;
 import com.example.FoodFleet.Entity.Customer;
 import com.example.FoodFleet.Exception.ResourceNotFoundException;
 import com.example.FoodFleet.Mapper.CustomerMapper;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -40,8 +39,8 @@ public class CustomerService {
         Customer customer = customerRepository.findByIdAndDeletedFalse(id)
                 .orElseThrow(()->
                         new ResourceNotFoundException(" Customer is not Exist with "+id));
-        CreateCustomerResponseDto customerResponseDto = customerMapper.mapToDTO(customer);
-        return customerResponseDto;
+        return customerMapper.mapToDTO(customer);
+
     }
     public List<CreateCustomerResponseDto> getall(){
         List<Customer> customers = customerRepository.findAllByDeletedFalse();  // list find ki...
@@ -53,7 +52,7 @@ public class CustomerService {
         return customerResponseDtos;           // ArrayList retuen kardi..
     }
 
-    public UpdateResponseDTO update(Long id, UpdateRequestDTO updateRequestDTO){
+    public UpdateCustomerResponseDTO update(Long id, UpdateCustomerRequestDTO updateRequestDTO){
         Customer customer = customerRepository.findByIdAndDeletedFalse(id)
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Customer is not Exist with"+ id + "for update"));

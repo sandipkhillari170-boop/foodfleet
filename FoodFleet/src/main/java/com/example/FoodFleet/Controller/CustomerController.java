@@ -2,8 +2,8 @@ package com.example.FoodFleet.Controller;
 
 import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
 import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
-import com.example.FoodFleet.DTO.UpdateRequestDTO;
-import com.example.FoodFleet.DTO.UpdateResponseDTO;
+import com.example.FoodFleet.DTO.UpdateCustomerRequestDTO;
+import com.example.FoodFleet.DTO.UpdateCustomerResponseDTO;
 import com.example.FoodFleet.Service.CustomerService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +36,8 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UpdateResponseDTO> update(@PathVariable Long id,
-                                                    @RequestBody UpdateRequestDTO updateRequestDTO){
+    public ResponseEntity<UpdateCustomerResponseDTO> update(@PathVariable Long id,
+                                                            @RequestBody UpdateCustomerRequestDTO updateRequestDTO){
         return ResponseEntity.ok(customerService.update(id, updateRequestDTO));
     }
 

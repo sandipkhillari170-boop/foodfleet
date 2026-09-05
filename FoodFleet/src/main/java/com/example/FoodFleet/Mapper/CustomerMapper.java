@@ -2,8 +2,8 @@ package com.example.FoodFleet.Mapper;
 
 import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
 import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
-import com.example.FoodFleet.DTO.UpdateRequestDTO;
-import com.example.FoodFleet.DTO.UpdateResponseDTO;
+import com.example.FoodFleet.DTO.UpdateCustomerRequestDTO;
+import com.example.FoodFleet.DTO.UpdateCustomerResponseDTO;
 import com.example.FoodFleet.Entity.Customer;
 import org.springframework.stereotype.Component;
 
@@ -35,7 +35,7 @@ public class CustomerMapper {
         return customerResponseDto;
     }
     
-    public Customer updateMapToEntity(UpdateRequestDTO updateRequestDTO, Customer customer){
+    public Customer updateMapToEntity(UpdateCustomerRequestDTO updateRequestDTO, Customer customer){
         customer.setName(updateRequestDTO.getName());
         customer.setPhoneNo(updateRequestDTO.getPhoneNo());
         customer.setActive(updateRequestDTO.getActive());
@@ -43,8 +43,8 @@ public class CustomerMapper {
         return customer;
     }
     
-    public UpdateResponseDTO updateMapToDTO(Customer customer){
-        UpdateResponseDTO updateResponseDTO = new UpdateResponseDTO();
+    public UpdateCustomerResponseDTO updateMapToDTO(Customer customer){
+        UpdateCustomerResponseDTO updateResponseDTO = new UpdateCustomerResponseDTO();
 
         updateResponseDTO.setName(customer.getName());
         updateResponseDTO.setId(customer.getId());
