@@ -1,4 +1,4 @@
-package com.example.FoodFleet.DTO;
+package com.example.FoodFleet.DTORestaurent;
 
 import java.time.LocalTime;
 

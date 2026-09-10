@@ -1,8 +1,8 @@
-package com.example.FoodFleet.DTO;
+package com.example.FoodFleet.DTOCustomer;
 
 import java.time.LocalDateTime;
 
-public class UpdateCustomerResponseDTO {
+public class CreateCustomerResponseDto {
     private Long id;
     private String name;
     private String phoneNo;
@@ -16,6 +16,12 @@ public class UpdateCustomerResponseDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public void setEmail(String email){
+        this.email=email;
     }
 
     public String getName() {
@@ -32,14 +38,6 @@ public class UpdateCustomerResponseDTO {
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public Boolean getActive() {

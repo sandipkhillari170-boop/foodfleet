@@ -1,8 +1,8 @@
 package com.example.FoodFleet.Mapper;
 
-import com.example.FoodFleet.DTO.CreateRestaurantRequestDto;
-import com.example.FoodFleet.DTO.CreateRestaurantResponseDto;
-import com.example.FoodFleet.DTO.UpdateRestaurantResquestDto;
+import com.example.FoodFleet.DTORestaurent.CreateRestaurantRequestDto;
+import com.example.FoodFleet.DTORestaurent.CreateRestaurantResponseDto;
+import com.example.FoodFleet.DTORestaurent.UpdateRestaurantResquestDto;
 import com.example.FoodFleet.Entity.Restaurant;
 import org.springframework.stereotype.Component;
 

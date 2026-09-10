@@ -1,9 +1,9 @@
 package com.example.FoodFleet.Service;
 
-import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
-import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
-import com.example.FoodFleet.DTO.UpdateCustomerRequestDTO;
-import com.example.FoodFleet.DTO.UpdateCustomerResponseDTO;
+import com.example.FoodFleet.DTOCustomer.CreateCustomerRequestDto;
+import com.example.FoodFleet.DTOCustomer.CreateCustomerResponseDto;
+import com.example.FoodFleet.DTOCustomer.UpdateCustomerRequestDTO;
+import com.example.FoodFleet.DTOCustomer.UpdateCustomerResponseDTO;
 import com.example.FoodFleet.Entity.Customer;
 import com.example.FoodFleet.Exception.ResourceNotFoundException;
 import com.example.FoodFleet.Mapper.CustomerMapper;

@@ -1,7 +1,7 @@
-package com.example.FoodFleet.DTO;
+package com.example.FoodFleet.DTORestaurent;
 
+import com.example.FoodFleet.Entity.Restaurant;
 import jakarta.persistence.Column;
-import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -20,7 +20,6 @@ public class CreateRestaurantRequestDto {
     private LocalTime closingTime ;
     @NotNull(message = "mention opening time")
     private LocalTime openingTime;
-
     public String getName() {
         return name;
     }
@@ -60,4 +59,5 @@ public class CreateRestaurantRequestDto {
     public void setOpeningTime(LocalTime openingTime) {
         this.openingTime = openingTime;
     }
+
 }

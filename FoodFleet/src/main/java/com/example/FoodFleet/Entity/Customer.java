@@ -18,6 +18,7 @@ public class Customer {
     private LocalDateTime updatedAt;
     private Boolean deleted = false;
 
+
     public long getId() {
         return id;
     }

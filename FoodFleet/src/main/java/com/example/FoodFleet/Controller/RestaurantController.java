@@ -1,7 +1,8 @@
 package com.example.FoodFleet.Controller;
 
-import com.example.FoodFleet.DTO.*;
-import com.example.FoodFleet.Entity.Restaurant;
+import com.example.FoodFleet.DTORestaurent.CreateRestaurantRequestDto;
+import com.example.FoodFleet.DTORestaurent.CreateRestaurantResponseDto;
+import com.example.FoodFleet.DTORestaurent.UpdateRestaurantResquestDto;
 import com.example.FoodFleet.Service.RestaurantService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

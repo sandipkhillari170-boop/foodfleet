@@ -1,18 +1,16 @@
 package com.example.FoodFleet.Service;
 
-import com.example.FoodFleet.DTO.CreateRestaurantRequestDto;
-import com.example.FoodFleet.DTO.CreateRestaurantResponseDto;
-import com.example.FoodFleet.DTO.UpdateRestaurantResquestDto;
+import com.example.FoodFleet.DTORestaurent.CreateRestaurantRequestDto;
+import com.example.FoodFleet.DTORestaurent.CreateRestaurantResponseDto;
+import com.example.FoodFleet.DTORestaurent.UpdateRestaurantResquestDto;
 import com.example.FoodFleet.Entity.Restaurant;
 import com.example.FoodFleet.Exception.ResourceNotFoundException;
 import com.example.FoodFleet.Mapper.RestaurantMapper;
 import com.example.FoodFleet.Repository.RestaurantRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service

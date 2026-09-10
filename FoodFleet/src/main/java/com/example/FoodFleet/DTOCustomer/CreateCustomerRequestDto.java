@@ -1,4 +1,4 @@
-package com.example.FoodFleet.DTO;
+package com.example.FoodFleet.DTOCustomer;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;

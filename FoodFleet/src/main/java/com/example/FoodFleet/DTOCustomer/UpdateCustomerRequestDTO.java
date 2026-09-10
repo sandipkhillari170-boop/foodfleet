@@ -1,4 +1,4 @@
-package com.example.FoodFleet.DTO;
+package com.example.FoodFleet.DTOCustomer;
 
 public class UpdateCustomerRequestDTO {
     private String name;

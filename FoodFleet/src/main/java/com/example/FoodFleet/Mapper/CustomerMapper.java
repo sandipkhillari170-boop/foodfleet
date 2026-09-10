@@ -1,9 +1,9 @@
 package com.example.FoodFleet.Mapper;
 
-import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
-import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
-import com.example.FoodFleet.DTO.UpdateCustomerRequestDTO;
-import com.example.FoodFleet.DTO.UpdateCustomerResponseDTO;
+import com.example.FoodFleet.DTOCustomer.CreateCustomerRequestDto;
+import com.example.FoodFleet.DTOCustomer.CreateCustomerResponseDto;
+import com.example.FoodFleet.DTOCustomer.UpdateCustomerRequestDTO;
+import com.example.FoodFleet.DTOCustomer.UpdateCustomerResponseDTO;
 import com.example.FoodFleet.Entity.Customer;
 import org.springframework.stereotype.Component;
 

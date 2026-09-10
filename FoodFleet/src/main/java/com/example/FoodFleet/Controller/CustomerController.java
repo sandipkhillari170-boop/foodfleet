@@ -1,9 +1,9 @@
 package com.example.FoodFleet.Controller;
 
-import com.example.FoodFleet.DTO.CreateCustomerRequestDto;
-import com.example.FoodFleet.DTO.CreateCustomerResponseDto;
-import com.example.FoodFleet.DTO.UpdateCustomerRequestDTO;
-import com.example.FoodFleet.DTO.UpdateCustomerResponseDTO;
+import com.example.FoodFleet.DTOCustomer.CreateCustomerRequestDto;
+import com.example.FoodFleet.DTOCustomer.CreateCustomerResponseDto;
+import com.example.FoodFleet.DTOCustomer.UpdateCustomerRequestDTO;
+import com.example.FoodFleet.DTOCustomer.UpdateCustomerResponseDTO;
 import com.example.FoodFleet.Service.CustomerService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

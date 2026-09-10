@@ -1,27 +1,26 @@
 package com.example.FoodFleet.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-
 @Entity
-public class Restaurant {
+@Table(name = "menu")
+public class Menu{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String name;
-    private String Address;
-    private String phoneNo;
-    private LocalTime closingTime;
-    private LocalTime openingTime;
-    private Boolean active = true;
+    private String description;
+    private Double price;
+    private String category;
+    private Boolean available = true;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private Boolean deleted = false;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
     public Long getId() {
         return id;
@@ -39,42 +38,36 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getAddress() {
-        return Address;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAddress(String address) {
-        Address = address;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public LocalTime getClosingTime() {
-        return closingTime;
+    public String getCategory() {
+        return category;
     }
 
-    public void setClosingTime(LocalTime closingTime) {
-        this.closingTime = closingTime;
-    }
-    public LocalTime getOpeningTime(){
-        return openingTime;
-    }
-    public void setOpeningTime(LocalTime openingTime) {
-        this.openingTime=openingTime;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public Boolean getActive() {
-        return active;
+    public Boolean getAvailable() {
+        return available;
     }
 
-    public void setActive(Boolean active) {
-        this.active = active;
+    public void setAvailable(Boolean available) {
+        this.available = available;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -99,5 +92,13 @@ public class Restaurant {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 }
