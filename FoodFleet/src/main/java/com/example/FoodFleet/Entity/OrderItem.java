@@ -1,20 +1,20 @@
 package com.example.FoodFleet.Entity;
 
 import jakarta.persistence.*;
-
 @Entity
-public class CartItem {
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer Quantity;
+    private Integer quantity;
+    private Double price;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
+    @JoinColumn(name = "orderId")
+    private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "menu_id")
+    @JoinColumn(name = "menuId")
     private Menu menu;
 
     public Long getId() {
@@ -26,19 +26,27 @@ public class CartItem {
     }
 
     public Integer getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
     public void setQuantity(Integer quantity) {
-        Quantity = quantity;
+        this.quantity = quantity;
     }
 
-    public Cart getCart() {
-        return cart;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public Menu getMenu() {

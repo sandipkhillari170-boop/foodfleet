@@ -20,6 +20,6 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<ResponseOrderDto> create(@RequestBody CreateOrderRequestDto requestDto){
-        return ResponseEntity.ok(orderService.Create(requestDto));
+        return ResponseEntity.ok(orderService.create(requestDto));
     }
 }
