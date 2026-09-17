@@ -19,7 +19,6 @@ public class Payment {
 
     @OneToOne
     @JoinColumn(name = "order_id", unique = true)
-
     private Order order;
 
 }

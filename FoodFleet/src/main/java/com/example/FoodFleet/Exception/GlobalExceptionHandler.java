@@ -1,5 +1,6 @@
 package com.example.FoodFleet.Exception;
 
+import org.hibernate.boot.beanvalidation.DuplicationStrategyImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -32,6 +33,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String>
     handleJSONException(HttpMessageNotReadableException ex){
         return ResponseEntity.badRequest().body("Invalid JSON format");
+    }
+
+    @ExceptionHandler(DuplicateException.class)
+    public ResponseEntity<String> duplicateHandler(DuplicateException ex){
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .body(ex.getMessage());
     }
 }
 

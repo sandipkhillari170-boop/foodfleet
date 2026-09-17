@@ -4,6 +4,7 @@ import com.example.FoodFleet.Entity.Order;
 import com.example.FoodFleet.Entity.Payment;
 import com.example.FoodFleet.PaymentDto.PaymentCerateRequestDto;
 import com.example.FoodFleet.PaymentDto.PaymentResponseDto;
+import com.example.FoodFleet.PaymentDto.UpdatePaymentRequstDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +13,7 @@ public class PaymentMapper {
                                Order order){
         Payment payment = new Payment();
         payment.setOrder(order);
-        payment.setPaymentMethod(dto.getPaymentMethode());
+        payment.setPaymentMethod(dto.getPaymentMethod());
         payment.setAmount(order.getTotalAmount());
 
         return payment;
@@ -26,6 +27,13 @@ public class PaymentMapper {
         responseDto.setPaymentMethod(payment.getPaymentMethod());
 
         return responseDto;
+    }
+
+    public Payment updateMapToEntity(UpdatePaymentRequstDto requstDto){
+        Payment payment = new Payment();
+        payment.setPaymentMethod(requstDto.getPaymentMethod());
+
+        return payment;
     }
 
 }
