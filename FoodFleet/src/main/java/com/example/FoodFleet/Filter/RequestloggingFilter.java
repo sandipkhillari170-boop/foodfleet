@@ -3,13 +3,13 @@ package com.example.FoodFleet.Filter;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.UUID;
 
 import jakarta.servlet.Filter;
-
 @Component
 public class RequestloggingFilter implements Filter {
     @Override
@@ -36,6 +36,6 @@ public class RequestloggingFilter implements Filter {
         Long endTime = System.currentTimeMillis();
 
         long totalTime  = endTime - startTime;
-        System.out.println("["+ requstId+ "]"+ "request Complate  "   + totalTime+ "ms");
+        System.out.println("Request Complate  "   + totalTime+ "ms");
     }
 }
