@@ -18,6 +18,10 @@ public class Customer {
     private LocalDateTime updatedAt;
     private Boolean deleted = false;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
     public long getId() {
         return id;
@@ -82,4 +86,13 @@ public class Customer {
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
+
