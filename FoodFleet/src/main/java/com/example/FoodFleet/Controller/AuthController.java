@@ -22,10 +22,10 @@ public class AuthController {
         return ResponseEntity.ok("Customer registed successfuly");
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginRequestDto loginRequestDto){
-        authService.login(loginRequestDto);
-        return ResponseEntity.ok("Loggin successfully !");
+         String token = authService.login(loginRequestDto);
+        return ResponseEntity.ok(token);
     }
 }
 

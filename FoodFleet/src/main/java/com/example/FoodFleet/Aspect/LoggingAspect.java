@@ -22,7 +22,7 @@ public class LoggingAspect {
             return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return e;
+            throw e;
         }
     }
 }
